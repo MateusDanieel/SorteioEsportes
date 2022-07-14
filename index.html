@@ -12,14 +12,88 @@
     <meta property="og:image" content="">
     <link rel="manifest" href="site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
     <!--[if IE]><link rel="shortcut icon" href="favicon.ico"><![endif]-->
     <link rel="icon" href="icon.png">
     <link rel="stylesheet" href="dist/css/main.min.css">
-    <meta name="theme-color" content="#fafafa">
+    <meta name="theme-color" content="#130F40">
 </head>
 
 <body>
 
+    <nav class="navbar">
+        <a href="./">
+            <i class="fa-solid fa-arrow-rotate-left fa-2x"></i>
+        </a>
+
+        <a href="https://github.com/mateusdanieel" target="_blank">
+            <i class="fa-brands fa-github fa-2x"></i>
+        </a>
+
+    </nav>
+
+    <section class="sec-seletor">
+        
+        <div class="container">
+            <h2 class="sec-seletor__title">
+                Selecione o Esporte
+            </h2>
+
+            <div class="sec-seletor__custom_radio">
+                
+                <input type="radio" id="futebol" name="radio_esportes" value="Futebol">
+                <label for="futebol">
+                    <i class="fa-solid fa-futbol"></i><br />
+                    Futebol
+                </label>
+                
+                <input type="radio" id="futsal" name="radio_esportes" value="Futsal">
+                <label for="futsal">
+                    <i class="fa-solid fa-futbol"></i><br />
+                    Futsal
+                </label>
+                
+                <input type="radio" id="FUT7" name="radio_esportes" value="FUT7">
+                <label for="FUT7">
+                    <i class="fa-solid fa-futbol"></i><br />
+                    FUT7
+                </label>
+
+                <input type="radio" id="basquete" name="radio_esportes" value="Basquete">
+                <label for="basquete">
+                    <i class="fa-solid fa-basketball"></i><br />
+                    Basquete
+                </label>
+
+                <input type="radio" id="basquete3x3" name="radio_esportes" value="Basquete 3X3">
+                <label for="basquete3x3">
+                    <i class="fa-solid fa-basketball"></i><br />
+                    Basquete 3X3
+                </label>
+
+                <input type="radio" id="volei" name="radio_esportes" value="Vôlei">
+                <label for="volei">
+                    <i class="fa-solid fa-volleyball"></i><br />
+                    Vôlei
+                </label>
+                
+            </div>
+
+            <button type="button" class="sec-seletor__bt" disabled>
+                <i class="fa-solid fa-angles-right"></i>
+                Avançar
+            </button>
+        </div>
+
+    </section>
+
+    <section class="sec-qtd-equipes">
+        
+    </section>
     
 
 
@@ -36,6 +110,7 @@
 
     <script src="dist/js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="dist/js/plugins.min.js"></script>
+    <script src="https://kit.fontawesome.com/427063e222.js" crossorigin="anonymous"></script>
     <script src="dist/js/main.min.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->

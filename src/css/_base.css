@@ -1,0 +1,25 @@
+$DeepCove: #130F40;
+$Blurple: #4834d4;
+
+@custom-media --xs (max-width: 480px);
+@custom-media --sm (max-width: 768px);
+@custom-media --md (max-width: 1024px);
+@custom-media --lg (max-width: 1200px);
+@custom-media --xl (min-width: 1201px);
+
+* {
+    color: #FFF;
+    box-sizing: border-box;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+    background-color: $DeepCove;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    padding: 0 20px;
+    margin: 0 auto;
+}

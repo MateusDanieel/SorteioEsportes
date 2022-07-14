@@ -1,0 +1,100 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.sec-seletor {
+
+    .container {
+        background-color: rgba(#000, .2);
+        padding: 20px;
+    }
+    
+
+    &__title {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 36px;
+        font-weight: 700;
+        margin: 0 0 20px;
+    }
+
+    &__custom_radio {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+
+        input {
+            display: none;
+
+            & + label {
+                display: block;
+                text-align: center;
+                font-size: 22px;
+                text-transform: uppercase;
+                cursor: pointer;
+                padding: 20px 15px;
+                width: calc(100% / 6);
+
+                @media (--sm) {
+                    width: calc(100% / 3);
+                }
+
+                @media (--xs) {
+                    width: 100%;
+                }
+
+                
+
+                i {
+                    font-size: 48px;
+                    margin: 0 0 10px;
+                }
+
+                &:hover {
+                    background-color: rgba(#000, .2);
+                }
+            }
+
+            &:checked {
+
+                & + label {
+                    background-color: $Blurple;
+                }
+            }
+        }
+    }
+
+    &__bt {
+        background-color: $Blurple;
+        border: 0;
+        font-size: 18px;
+        text-transform: uppercase;
+        padding: 12.5px 30px;
+        cursor: pointer;
+        display: block;
+        margin: 20px auto 0;
+
+        i {
+            margin: 0 5px 0 0;
+        }
+
+        &:disabled {
+            opacity: .1;
+            cursor: no-drop;
+
+            &:hover {
+                background-color: rgba($Blurple, 1);
+            }
+        }
+
+        &:hover {
+            background-color: rgba($Blurple, .9);
+        }
+    }
+}
