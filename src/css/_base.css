@@ -25,6 +25,7 @@ body {
 }
 
 section {
+    min-width: 100%;
     .container {
         background-color: rgba(#000, .2);
         padding: 20px;
