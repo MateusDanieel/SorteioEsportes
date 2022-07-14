@@ -39,13 +39,13 @@
     <section class="sec-seletor">
         
         <div class="container">
-            <h2 class="sec-seletor__title">
+            <h2 class="sec-title sec-seletor__title">
                 Selecione o Esporte
             </h2>
 
             <div class="sec-seletor__custom_radio">
                 
-                <input type="radio" id="futebol" name="radio_esportes" value="Futebol">
+                <input type="radio" id="futebol" name="radio_esportes" value="Futebol" checked>
                 <label for="futebol">
                     <i class="fa-solid fa-futbol"></i><br />
                     Futebol
@@ -83,7 +83,7 @@
                 
             </div>
 
-            <button type="button" class="sec-seletor__bt" disabled>
+            <button type="button" class="bt sec-seletor__bt">
                 <i class="fa-solid fa-angles-right"></i>
                 Avançar
             </button>
@@ -92,7 +92,147 @@
     </section>
 
     <section class="sec-qtd-equipes">
+
+        <div class="container">
+            <h2 class="sec-title sec-qtd-equipes__title">
+                Informe a Quantidade de Equipes
+            </h2>
+
+            <input type="number" class="sec-qtd-equipes__input" placeholder="Ex: 4" />
+
+            <div class="bt-group">
+                <button type="button" class="bt sec-seletor__bt">
+                    <i class="fa-solid fa-angles-left"></i>
+                    Voltar
+                </button>
+
+                <button type="button" class="bt sec-seletor__bt">
+                    <i class="fa-solid fa-angles-right"></i>
+                    Avançar
+                </button>
+            </div>
+
+        </div>
         
+    </section>
+
+    <section class="sec-jogadores">
+
+        <div class="container">
+            <h2 class="sec-title sec-jogadores__title">
+                Informe os Jogadores
+            </h2>
+
+            <div class="sec-jogadores__wrapper">
+                <div class="sec-jogadores__wrapper__jogador">
+                    <span class="sec-jogadores__wrapper__jogador__posicao gol">
+                        GOL
+                    </span>
+                    <input type="text" maxlength="13" class="sec-jogadores__wrapper__jogador__input" placeholder="Nome do Jogador" />
+                </div>
+
+                <div class="sec-jogadores__wrapper__jogador">
+                    <span class="sec-jogadores__wrapper__jogador__posicao linha">
+                        Linha
+                    </span>
+                    <input type="text" maxlength="25" class="sec-jogadores__wrapper__jogador__input" placeholder="Nome do Jogador" />
+                </div>
+                
+            </div>
+
+            <div class="bt-group">
+                <button type="button" class="bt sec-seletor__bt">
+                    <i class="fa-solid fa-angles-left"></i>
+                    Voltar
+                </button>
+
+                <button type="button" class="bt sec-seletor__bt">
+                    <i class="fa-solid fa-angles-right"></i>
+                    Montar Equipes
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="sec-resultado">
+
+        <div class="container">
+            <h2 class="sec-title sec-resultado__title">
+                Resultado do Sorteio
+            </h2>
+
+            <div class="sec-resultado__wrapper">
+                <div class="sec-resultado__wrapper__equipe">
+                    <h3 class="sec-resultado__wrapper__equipe__title">
+                        Time 1
+                    </h3>
+
+                    <div class="sec-resultado__wrapper__equipe__jogador">
+                        <span class="sec-resultado__wrapper__equipe__jogador__posicao gol">
+                            GOL
+                        </span>
+
+                        <span class="sec-resultado__wrapper__equipe__jogador__numero">
+                            17
+                        </span>
+
+                        <span class="sec-resultado__wrapper__equipe__jogador__nome">
+                            Mateus Daniel
+                        </span>
+                    </div>
+
+                    <div class="sec-resultado__wrapper__equipe__jogador">
+                        <span class="sec-resultado__wrapper__equipe__jogador__posicao linha">
+                            LINHA
+                        </span>
+
+                        <span class="sec-resultado__wrapper__equipe__jogador__numero">
+                            10
+                        </span>
+
+                        <span class="sec-resultado__wrapper__equipe__jogador__nome">
+                            Lionel Andrés
+                        </span>
+                    </div>
+                </div>
+
+                <div class="sec-resultado__wrapper__equipe">
+                    <h3 class="sec-resultado__wrapper__equipe__title">
+                        Time 1
+                    </h3>
+
+                    <div class="sec-resultado__wrapper__equipe__jogador">
+                        <span class="sec-resultado__wrapper__equipe__jogador__posicao gol">
+                            GOL
+                        </span>
+
+                        <span class="sec-resultado__wrapper__equipe__jogador__numero">
+                            17
+                        </span>
+
+                        <span class="sec-resultado__wrapper__equipe__jogador__nome">
+                            Mateus Daniel
+                        </span>
+                    </div>
+
+                    <div class="sec-resultado__wrapper__equipe__jogador">
+                        <span class="sec-resultado__wrapper__equipe__jogador__posicao linha">
+                            LINHA
+                        </span>
+
+                        <span class="sec-resultado__wrapper__equipe__jogador__numero">
+                            10
+                        </span>
+
+                        <span class="sec-resultado__wrapper__equipe__jogador__nome">
+                            Lionel Andrés
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
     
 
