@@ -8,8 +8,13 @@
     }
 }
 
-.sec-seletor {
+.main-content {
+    display: flex;
+    overflow: hidden;
+}
 
+.sec-seletor {
+    
     &__custom_radio {
         display: flex;
         flex-wrap: wrap;
