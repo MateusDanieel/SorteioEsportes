@@ -10,20 +10,6 @@
 
 .sec-seletor {
 
-    .container {
-        background-color: rgba(#000, .2);
-        padding: 20px;
-    }
-    
-
-    &__title {
-        text-transform: uppercase;
-        text-align: center;
-        font-size: 36px;
-        font-weight: 700;
-        margin: 0 0 20px;
-    }
-
     &__custom_radio {
         display: flex;
         flex-wrap: wrap;
@@ -49,8 +35,6 @@
                     width: 100%;
                 }
 
-                
-
                 i {
                     font-size: 48px;
                     margin: 0 0 10px;
@@ -65,36 +49,128 @@
 
                 & + label {
                     background-color: $Blurple;
+
+                    &:hover {
+                        background-color: rgba($Blurple, .9);
+                    }
                 }
+
             }
         }
     }
+}
 
-    &__bt {
-        background-color: $Blurple;
-        border: 0;
-        font-size: 18px;
-        text-transform: uppercase;
-        padding: 12.5px 30px;
-        cursor: pointer;
-        display: block;
-        margin: 20px auto 0;
+.sec-qtd-equipes {
+    
+    &__input {
+        margin: 0 auto 10px;
+    }
+}
 
-        i {
-            margin: 0 5px 0 0;
-        }
+.sec-jogadores {
+    &__wrapper {
+        &__jogador {
+            margin: 0 0 10px;
+            display: flex;
+            justify-content: center;
 
-        &:disabled {
-            opacity: .1;
-            cursor: no-drop;
+            &__posicao {
+                display: inline-block;
+                background-color: #2A2A2A;
+                color: #e74c3c;
+                padding: 10px;
+                min-width: 82px;
+                text-align: center;
+                font-size: 22px;
+                font-weight: 700;
+                text-transform: uppercase;
 
-            &:hover {
-                background-color: rgba($Blurple, 1);
+                &.gol {
+                    color: #E74C3C;
+                }
+
+                &.linha {
+                    color: #2ECC71;
+                }
+            }
+
+            &__input {
+                
+    
+                
             }
         }
+    }
+        
+}
 
-        &:hover {
-            background-color: rgba($Blurple, .9);
+.sec-resultado {
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        &__equipe {
+            width: 50%;
+            padding: 10px;
+
+            @media (--sm) {
+                width: 100%;
+            }
+
+            &__title {
+                font-size: 30px;
+                font-weight: 700;
+                text-transform: uppercase;
+                margin: 0 0 10px;
+                padding: 10px 20px;
+                background-color: rgba($Blurple, .9);
+
+                i {
+                    margin: 0 10px 0 0;
+                }
+            }
+
+            &__jogador {
+
+                border-bottom: 1px solid rgba(#FFF, .1);
+                padding: 0 0 10px;
+                margin: 0 0 10px;
+
+                &__posicao {
+                    display: inline-block;
+                    background-color: #2A2A2A;
+                    color: #e74c3c;
+                    padding: 5px;
+                    min-width: 60px;
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+
+                    &.gol {
+                        color: #E74C3C;
+                    }
+
+                    &.linha {
+                        color: #2ECC71;
+                    }
+                }
+
+                &__numero {
+                    font-size: 22px;
+                    padding: 0 10px;
+                    border-right: 1px solid rgba(#FFF, .1);
+                    font-weight: 700;
+                }
+
+                &__nome {
+                    font-size: 22px;
+                    padding: 0 10px;
+                    text-transform: uppercase;
+                }
+
+            }
         }
     }
 }

@@ -1,10 +1,10 @@
 $DeepCove: #130F40;
 $Blurple: #4834d4;
 
-@custom-media --xs (max-width: 480px);
-@custom-media --sm (max-width: 768px);
-@custom-media --md (max-width: 1024px);
-@custom-media --lg (max-width: 1200px);
+@custom-media --xs (max-width: 479px);
+@custom-media --sm (max-width: 767px);
+@custom-media --md (max-width: 1023px);
+@custom-media --lg (max-width: 1199px);
 @custom-media --xl (min-width: 1201px);
 
 * {
@@ -22,4 +22,91 @@ body {
     max-width: 1140px;
     padding: 0 20px;
     margin: 0 auto;
+}
+
+section {
+    .container {
+        background-color: rgba(#000, .2);
+        padding: 20px;
+        margin: 0 auto 20px;
+
+        @media (--sm) {
+            background-color: transparent;
+        }
+    }
+
+    .sec-title {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 36px;
+        font-weight: 700;
+        margin: 0 0 20px;
+    }
+
+}
+
+.bt-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (--sm) {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .bt {
+        margin: 10px 10px 0;
+    }
+}
+
+.bt {
+    background-color: $Blurple;
+    border: 0;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 12.5px 30px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+
+    i {
+        margin: 0 5px 0 0;
+    }
+
+    &:disabled {
+        opacity: .1;
+        cursor: no-drop;
+
+        &:hover {
+            background-color: rgba($Blurple, 1);
+        }
+    }
+
+    &:hover {
+        background-color: rgba($Blurple, .9);
+    }
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input {
+    background-color: rgba(#000, .4);
+    outline: none;
+    font-size: 22px;
+    display: block;
+    border: 0;
+    padding: 10px 20px;
+
+    &::placeholder {
+        font-style: italic;
+    }
 }
