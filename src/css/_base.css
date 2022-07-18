@@ -26,6 +26,8 @@ body {
 
 section {
     min-width: 100%;
+    transition: .6s;
+
     .container {
         background-color: rgba(#000, .2);
         padding: 20px;
