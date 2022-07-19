@@ -106,15 +106,11 @@
 
         players_input = document.querySelectorAll('.sec-jogadores__wrapper__jogador__input');
 
-        players_input.forEach((el) => {
-
+        players_input.forEach((el, i, arr) => {
             
-            // CORRIGIR AQUI!!!
             el.addEventListener('input', () => {
                 if(el.value == '') {
                     players_btMontar.setAttribute('disabled', '');
-                } else {
-                    players_btMontar.removeAttribute('disabled');
                 }
             });
         });
