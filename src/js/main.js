@@ -12,9 +12,12 @@
     let teams_input = document.querySelector('.sec-qtd-equipes__input');
     let teams_btProx = document.querySelector('.bt.sec-qtd-equipes__bt.bt-next');
 
+    let players_section = document.querySelector('.sec-jogadores');
     let players_wrapper = document.querySelector('.sec-jogadores__wrapper');
     let players_input = [];
     let players_btMontar = document.querySelector('.sec-jogadores .bt.sec-jogadores__bt.bt-montar');
+
+    let result_wrapper = document.querySelector('.sec-resultado .sec-resultado__wrapper');
 
     let sports_selected = '';
     let teams_qtd = 0;
@@ -85,7 +88,7 @@
                 <span class="sec-jogadores__wrapper__jogador__posicao gol">
                 GOL
                 </span>
-                <input type="text" maxlength="13" class="sec-jogadores__wrapper__jogador__input"
+                <input type="text" maxlength="13" class="sec-jogadores__wrapper__jogador__input" data-position="goleiro"
                 placeholder="Nome do Goleiro" />
             </div>
             `;
@@ -98,7 +101,7 @@
                 <span class="sec-jogadores__wrapper__jogador__posicao linha">
                 Linha
                 </span>
-                <input type="text" maxlength="25" class="sec-jogadores__wrapper__jogador__input"
+                <input type="text" maxlength="25" class="sec-jogadores__wrapper__jogador__input" data-position="linha"
                 placeholder="Nome do Jogador" />
             </div>
             `;
@@ -124,14 +127,82 @@
         });
     });
 
+    function shuffleArray(arr) {
+        
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        
+        return arr;
+    }
+
     players_btMontar.addEventListener('click', () => {
-        let getPlayers = [];
+        let gkPlayers = [];
+        let linePlayers = [];
+        let totPlayers = 0;
+        
+        players_section.style.marginLeft = "-100%";
 
         players_input.forEach((el) => {
-            getPlayers.push(el);
+            if(el.dataset.position == 'goleiro') {
+                gkPlayers.push(el.value);
+            } else if (el.dataset.position == 'linha') {
+                linePlayers.push(el.value);
+            }
         });
 
-        console.log(getPlayers);
+        totPlayers = gkPlayers.length + linePlayers.length;
+        let randomGK = shuffleArray(gkPlayers);
+        let randomPlayer = shuffleArray(linePlayers);
+
+        for(let i = 0; i < teams_qtd; i++) {
+
+            result_wrapper.innerHTML +=
+            `
+                <div class="sec-resultado__wrapper__equipe">
+                    <h3 class="sec-resultado__wrapper__equipe__title">
+                        Time ${i + 1}
+                    </h3>
+
+                    <div class="sec-resultado__wrapper__equipe__jogador">
+                        <span class="sec-resultado__wrapper__equipe__jogador__posicao gol">
+                            GOL
+                        </span>
+
+                        <span class="sec-resultado__wrapper__equipe__jogador__numero">
+                            1
+                        </span>
+
+                        <span class="sec-resultado__wrapper__equipe__jogador__nome">
+                            ${randomGK[i]}
+                        </span>
+                    </div>
+
+                    ${randomPlayer.map((el, j) => {
+                        // ARRUMAR PARA MONTAR OS TIMES CORRETAMENTE!!!
+                        return `
+                        <div class="sec-resultado__wrapper__equipe__jogador">
+                            <span class="sec-resultado__wrapper__equipe__jogador__posicao linha">
+                            LINHA
+                            </span>
+            
+                            <span class="sec-resultado__wrapper__equipe__jogador__numero">
+                                ${2 + j++}
+                            </span>
+            
+                            <span class="sec-resultado__wrapper__equipe__jogador__nome">
+                                ${el}
+                            </span>
+                        </div>`;
+                    }).join('')}
+
+                </div>
+            `;
+        }
+
+        
+
     });
 
 })();
