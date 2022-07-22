@@ -111,6 +111,8 @@
             el.addEventListener('input', () => {
                 if(el.value == '') {
                     players_btMontar.setAttribute('disabled', '');
+                } else {
+                    players_btMontar.removeAttribute('disabled');
                 }
             });
         });
