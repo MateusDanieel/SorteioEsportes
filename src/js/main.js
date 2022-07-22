@@ -155,6 +155,7 @@
         totPlayers = gkPlayers.length + linePlayers.length;
         let randomGK = shuffleArray(gkPlayers);
         let randomPlayer = shuffleArray(linePlayers);
+        let spliceIndex = linePlayers.length / teams_qtd;
 
         for(let i = 0; i < teams_qtd; i++) {
 
@@ -179,26 +180,41 @@
                         </span>
                     </div>
 
-                    ${randomPlayer.map((el, j) => {
-                        // ARRUMAR PARA MONTAR OS TIMES CORRETAMENTE!!!
-                        return `
-                        <div class="sec-resultado__wrapper__equipe__jogador">
-                            <span class="sec-resultado__wrapper__equipe__jogador__posicao linha">
-                            LINHA
-                            </span>
-            
-                            <span class="sec-resultado__wrapper__equipe__jogador__numero">
-                                ${2 + j++}
-                            </span>
-            
-                            <span class="sec-resultado__wrapper__equipe__jogador__nome">
-                                ${el}
-                            </span>
-                        </div>`;
-                    }).join('')}
+                    ${
+                        randomPlayer.map((el, j) => {
+                            let html = ``;
+
+                            for(let count = 0; count < linePlayers.length / teams_qtd && j < linePlayers.length / teams_qtd; count++) {
+
+                                html += `
+                                <div class="sec-resultado__wrapper__equipe__jogador">
+                                    <span class="sec-resultado__wrapper__equipe__jogador__posicao linha">
+                                        LINHA
+                                    </span>
+                    
+                                    <span class="sec-resultado__wrapper__equipe__jogador__numero">
+                                        ${2 + j++}
+                                    </span>
+                    
+                                    <span class="sec-resultado__wrapper__equipe__jogador__nome">
+                                        ${el}
+                                    </span>
+                                </div>
+                                `;
+                            }
+
+                            return html;
+                        
+                        }).join('')
+                    }
 
                 </div>
             `;
+
+            randomPlayer.splice(0, spliceIndex);
+            
+
+            
         }
 
         
