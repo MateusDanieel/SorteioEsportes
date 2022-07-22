@@ -86,7 +86,7 @@
                 GOL
                 </span>
                 <input type="text" maxlength="13" class="sec-jogadores__wrapper__jogador__input"
-                placeholder="Nome do Goleiro" value="Cássio" />
+                placeholder="Nome do Goleiro" />
             </div>
             `;
         }
@@ -99,7 +99,7 @@
                 Linha
                 </span>
                 <input type="text" maxlength="25" class="sec-jogadores__wrapper__jogador__input"
-                placeholder="Nome do Jogador" value="teste" />
+                placeholder="Nome do Jogador" />
             </div>
             `;
         }
@@ -113,18 +113,25 @@
                     players_btMontar.setAttribute('disabled', '');
                 } else {
                     players_btMontar.removeAttribute('disabled');
+
+                    arr.forEach((input) => {
+                        if(input.value == '') {
+                            players_btMontar.setAttribute('disabled', '');
+                        }
+                    });
                 }
             });
         });
-
     });
 
-    
+    players_btMontar.addEventListener('click', () => {
+        let getPlayers = [];
 
-    
+        players_input.forEach((el) => {
+            getPlayers.push(el);
+        });
 
+        console.log(getPlayers);
+    });
 
-    
-    
-    
 })();
