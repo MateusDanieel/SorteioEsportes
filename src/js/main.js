@@ -149,14 +149,13 @@
                 gkPlayers.push(el.value);
             } else if (el.dataset.position == 'linha') {
                 linePlayers.push(el.value);
+                totPlayers += 1;
             }
         });
-
-        totPlayers = gkPlayers.length + linePlayers.length;
+        
         let randomGK = shuffleArray(gkPlayers);
         let randomPlayer = shuffleArray(linePlayers);
-        let spliceIndex = linePlayers.length / teams_qtd;
-
+        
         for(let i = 0; i < teams_qtd; i++) {
 
             result_wrapper.innerHTML +=
@@ -181,11 +180,10 @@
                     </div>
 
                     ${
-                        randomPlayer.map((el, j) => {
+                        randomPlayer.map((el, j, arr) => {
                             let html = ``;
 
-                            for(let count = 0; count < linePlayers.length / teams_qtd && j < linePlayers.length / teams_qtd; count++) {
-
+                            if(j < (totPlayers / teams_qtd)) {
                                 html += `
                                 <div class="sec-resultado__wrapper__equipe__jogador">
                                     <span class="sec-resultado__wrapper__equipe__jogador__posicao linha">
@@ -203,6 +201,8 @@
                                 `;
                             }
 
+                            
+
                             return html;
                         
                         }).join('')
@@ -211,7 +211,7 @@
                 </div>
             `;
 
-            randomPlayer.splice(0, spliceIndex);
+            randomPlayer.splice(0, totPlayers / teams_qtd);
             
 
             
