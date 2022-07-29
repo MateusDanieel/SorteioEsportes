@@ -35,18 +35,25 @@
     btNext.forEach((el, i) => {
         el.addEventListener('click', () => {
             sections[i].style.marginLeft = '-100%';
+            window.scrollTo(0, 0);
         });
     });
 
     btPrev.forEach((el, i) => {
         el.addEventListener('click', () => {
-            sections[i].style.marginLeft = '';
-        });
+            window.scrollTo(0, 0);
+
+            if(el.className == 'bt sec-jogadores__bt bt-prev') {
+                window.confirm('Todos os jogadores inseridos serão perdidos.\nTem certeza?') ? sections[i].style.marginLeft = '' : null;
+            } else {
+                sections[i].style.marginLeft = '';
+            }
+        });        
     });
     
     teams_input.addEventListener('input', () => {
 
-        if(teams_input.value != '' && teams_input.value >= 2 && teams_input.value <= 20) {
+        if(teams_input.value != '' && teams_input.value >= 2 && teams_input.value <= 20 && Number.isInteger(parseFloat(teams_input.value))) {
             teams_btProx.removeAttribute('disabled');
         } else {
             teams_btProx.setAttribute('disabled', '');
@@ -178,7 +185,7 @@
                                         </span>
                         
                                         <span class="sec-resultado__wrapper__equipe__jogador__numero">
-                                            ${2 + j++}
+                                            ${1 + j++}
                                         </span>
                         
                                         <span class="sec-resultado__wrapper__equipe__jogador__nome">
@@ -254,9 +261,6 @@
 
             randomPlayer.splice(0, totPlayers / teams_qtd);            
         }
-
-        
-
     });
 
 })();
