@@ -158,63 +158,101 @@
         
         for(let i = 0; i < teams_qtd; i++) {
 
-            result_wrapper.innerHTML +=
-            `
-                <div class="sec-resultado__wrapper__equipe">
-                    <h3 class="sec-resultado__wrapper__equipe__title">
-                        Time ${i + 1}
-                    </h3>
-
-                    <div class="sec-resultado__wrapper__equipe__jogador">
-                        <span class="sec-resultado__wrapper__equipe__jogador__posicao gol">
-                            GOL
-                        </span>
-
-                        <span class="sec-resultado__wrapper__equipe__jogador__numero">
-                            1
-                        </span>
-
-                        <span class="sec-resultado__wrapper__equipe__jogador__nome">
-                            ${randomGK[i]}
-                        </span>
+            if(randomGK.length == 0) {
+                result_wrapper.innerHTML +=
+                `
+                    <div class="sec-resultado__wrapper__equipe">
+                        <h3 class="sec-resultado__wrapper__equipe__title">
+                            Time ${i + 1}
+                        </h3>
+    
+                        ${
+                            randomPlayer.map((el, j) => {
+                                let html = ``;
+    
+                                if(j < (totPlayers / teams_qtd)) {
+                                    html += `
+                                    <div class="sec-resultado__wrapper__equipe__jogador">
+                                        <span class="sec-resultado__wrapper__equipe__jogador__posicao linha">
+                                            LINHA
+                                        </span>
+                        
+                                        <span class="sec-resultado__wrapper__equipe__jogador__numero">
+                                            ${2 + j++}
+                                        </span>
+                        
+                                        <span class="sec-resultado__wrapper__equipe__jogador__nome">
+                                            ${el}
+                                        </span>
+                                    </div>
+                                    `;
+                                }
+    
+                                
+    
+                                return html;
+                            
+                            }).join('')
+                        }
+    
                     </div>
+                `;
+            } else {
+                result_wrapper.innerHTML +=
+                    `
+                        <div class="sec-resultado__wrapper__equipe">
+                            <h3 class="sec-resultado__wrapper__equipe__title">
+                                Time ${i + 1}
+                            </h3>
 
-                    ${
-                        randomPlayer.map((el, j, arr) => {
-                            let html = ``;
+                            <div class="sec-resultado__wrapper__equipe__jogador">
+                                <span class="sec-resultado__wrapper__equipe__jogador__posicao gol">
+                                    GOL
+                                </span>
 
-                            if(j < (totPlayers / teams_qtd)) {
-                                html += `
-                                <div class="sec-resultado__wrapper__equipe__jogador">
-                                    <span class="sec-resultado__wrapper__equipe__jogador__posicao linha">
-                                        LINHA
-                                    </span>
-                    
-                                    <span class="sec-resultado__wrapper__equipe__jogador__numero">
-                                        ${2 + j++}
-                                    </span>
-                    
-                                    <span class="sec-resultado__wrapper__equipe__jogador__nome">
-                                        ${el}
-                                    </span>
-                                </div>
-                                `;
+                                <span class="sec-resultado__wrapper__equipe__jogador__numero">
+                                    1
+                                </span>
+
+                                <span class="sec-resultado__wrapper__equipe__jogador__nome">
+                                    ${randomGK[i]}
+                                </span>
+                            </div>
+
+                            ${
+                                randomPlayer.map((el, j) => {
+                                    let html = ``;
+
+                                    if(j < (totPlayers / teams_qtd)) {
+                                        html += `
+                                        <div class="sec-resultado__wrapper__equipe__jogador">
+                                            <span class="sec-resultado__wrapper__equipe__jogador__posicao linha">
+                                                LINHA
+                                            </span>
+                            
+                                            <span class="sec-resultado__wrapper__equipe__jogador__numero">
+                                                ${2 + j++}
+                                            </span>
+                            
+                                            <span class="sec-resultado__wrapper__equipe__jogador__nome">
+                                                ${el}
+                                            </span>
+                                        </div>
+                                        `;
+                                    }
+
+                                    
+
+                                    return html;
+                                
+                                }).join('')
                             }
 
-                            
+                        </div>
+                    `;
+            }
 
-                            return html;
-                        
-                        }).join('')
-                    }
-
-                </div>
-            `;
-
-            randomPlayer.splice(0, totPlayers / teams_qtd);
-            
-
-            
+            randomPlayer.splice(0, totPlayers / teams_qtd);            
         }
 
         
